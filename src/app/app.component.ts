@@ -9,10 +9,17 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
+
+  public appMenu = [
+    {title : 'Home', url : '/', icon : 'logo-octocat'},
+    {title : 'About Us', url : '/aboutus', icon : 'list'},
+    {title : 'contact', url : '/contact', icon : 'add' }
+  ];
+
   constructor(
-    private platform: Platform,
-    private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+      private platform: Platform,
+      private splashScreen: SplashScreen,
+      private statusBar: StatusBar
   ) {
     this.initializeApp();
   }
