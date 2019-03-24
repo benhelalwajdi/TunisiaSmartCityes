@@ -1,5 +1,7 @@
 {
   "name": "TunisiaSmartCityes",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
