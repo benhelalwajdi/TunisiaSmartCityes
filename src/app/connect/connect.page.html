@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="bar bar-header bar-dark">
+
+    <ion-toolbar>
+      <ion-segment [(ngModel)]="Choise" >
+        <ion-segment-button value="Login">
+          Login
+        </ion-segment-button>
+        <ion-segment-button value="Register">
+          Register
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
+  </div>
+  <ion-content class="has-header">
+
+    <div  [ngSwitch]="Choise" >
+
+      <ion-list *ngSwitchCase="'Login'">
+        <ion-item-group>
+          <ion-item>
+            <ion-input type="email" [(ngModel)]="Username" placeholder="Username"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="password" [(ngModel)]="password" placeholder="Password"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-button type="submit" [(ngModel)]="Username" (click)="signIn()"  [disabled]="!Username || !password" color="primary">Login</ion-button>
+          </ion-item>
+
+          <ion-list size-md="6" offset-md="3">
+            <ion-item *ngFor="let prod of Us" [routerLink]="['', user.id]">
+              <!--ion-avatar slot="start">
+                <ion-label [src]="'assets/' + prod.email + '.png'"></ion-label>
+              </ion-avatar-->
+              <ion-label>{{ prod.email }}: {{ prod.password }}</ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-item-group>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'Register'">
+        <ion-item-group>
+          <ion-item>
+            <p>
+              For use this application you need to contact the Organisation of Tunisia smart cities
+            </p>
+          </ion-item>
+          <ion-item>
+            <a href="http://www.bizertesmartcity.com/" >Register</a>
+          </ion-item>
+          <ion-header>
+            <ion-toolbar>
+              <ion-title>login</ion-title>
+            </ion-toolbar>
+          </ion-header>
+
+          <ion-content padding>
+            <ion-button (click)="navTabs()" expand="block">Navigate to tabs</ion-button>
+          </ion-content>
+        </ion-item-group>
+
+      </ion-list>
+
+    </div>
+  </ion-content>
+</ion-content>
